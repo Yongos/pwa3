@@ -10,9 +10,9 @@ if (workbox) {
 
     /*  Mise en cache de fichier png, gif et jpg et édition du fichier sw-config.js 
     */
-    workbox.routing.registerRoute(nb), (
-        //sélectionne le type de fichier à mettre en cache
-        /(.*)others(.*)\.(?:png|gif|jpg)/,
+   //sélectionne le type de fichier à mettre en cache
+   workbox.routing.registerRoute(
+    /(.*)others(.*)\.(?:png|gif|jpg)/,
         //créer une variable contenant les fichiers mise en cache
         //CacheFirst --> stratégie de cache : si un cache existe alors chargé le cache sans utilisié le réseaux
         new workbox.strategies.CacheFirst({
@@ -28,6 +28,7 @@ if (workbox) {
     );
     /* Mise en cache des fichier JS et css et être sur de leurs mise à jours pour les prochaines utilisations. 
     */
+
     workbox.routing.registerRoute(
         //sélectionne le type de fichier à mettre en cache
         /.*\.(?:css|js|scss|)/,
